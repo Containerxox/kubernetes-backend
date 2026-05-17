@@ -17,3 +17,23 @@ output "aws_account_id" {
   description = "AWS account ID"
   value       = data.aws_caller_identity.current.account_id
 }
+
+output "eks_cluster_name" {
+  description = "EKS cluster name"
+  value       = aws_eks_cluster.main.name
+}
+
+output "rds_endpoint" {
+  description = "RDS endpoint"
+  value       = aws_db_instance.mysql.address
+}
+
+output "private_subnet_ids" {
+  description = "Private subnet IDs"
+  value       = aws_subnet.private[*].id
+}
+
+output "public_subnet_ids" {
+  description = "Public subnet IDs"
+  value       = aws_subnet.public[*].id
+}

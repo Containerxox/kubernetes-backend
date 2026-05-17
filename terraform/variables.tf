@@ -25,3 +25,21 @@ variable "github_branch" {
   type        = string
   default     = "main"
 }
+
+variable "vpc_cidr" {
+  description = "VPC CIDR block"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "db_username" {
+  description = "RDS master username"
+  type        = string
+  default     = "admin"
+}
+
+variable "db_password" {
+  description = "RDS master password"
+  type        = string
+  sensitive   = true
+}
