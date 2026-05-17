@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: spring-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: spring
+
+  template:
+    metadata:
+      labels:
+        app: spring
+
+    spec:
+      containers:
+        - name: spring-container
+          image: kubernetes-backend:local
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config
+                  key: DB_HOST
+
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config
+                  key: DB_PORT
+
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config
+                  key: DB_NAME
+
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: spring-secret
+                  key: DB_USERNAME
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: spring-secret
+                  key: DB_PASSWORD
