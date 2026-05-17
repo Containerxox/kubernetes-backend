@@ -46,3 +46,5 @@ terraform/*.tfstate.*
 terraform/terraform.tfvars
 terraform/.terraform.lock.hcl
 terraform/crash.log
+
+k8s/eks/spring-secret.yaml
