@@ -5,7 +5,7 @@ metadata:
   name: spring-service
 
 spec:
-  type: LoadBalancer
+  type: ClusterIP
 
   selector:
     app: spring
