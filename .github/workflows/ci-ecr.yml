@@ -72,7 +72,7 @@ jobs:
           echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
 
           docker build -t $IMAGE_URI .
-          docker push $IMAGE_URI
+          docker push $IMAGE_URI 
 
           echo "Pushed image: $IMAGE_URI"
 
