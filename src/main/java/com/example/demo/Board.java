@@ -28,5 +28,5 @@ public class Board {
 
   public String getContent() {
     return content;
-  }
+  } 
 }
